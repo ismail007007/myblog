@@ -2,32 +2,37 @@
 <link href="https://startbootstrap.github.io/startbootstrap-grayscale/css/styles.css" rel="stylesheet" />
 
 <header class="masthead">
-<h1>Listing articles</h1>
- <%= link_to 'New article', new_article_path %>
+
+<style>
+table, th, td {
+  border: 2px solid white;
+  border-collapse: collapse;
+}
+</style>
+<h1 style = "padding: 30px; text-align: center;">Listing articles</h1>
+<p style="font-size:30px; color:white;"> <%= link_to 'New article', new_article_path %> </p>
+
+<p style="font-size:30px; color:white;"> Recent Blogs </p>
 <table>
   
- 
+  <tr>
+    <th style="font-size:20px; color:white;">Title</th>
+    <th style="font-size:20px; color:white;">Blog</th> 
+    <th style="font-size:20px; color:white;">Recent Comments</th>
+    <th style="font-size:20px; color:white;">Options</th>
+  </tr>
   <% @articles.each do |article| %>
 
     <tr>
-      <th style="font-size:30px; color:white;" >Title</th>
-    </tr>
-    <tr>
-      <td  style="color:white;"><%= article.title %></td>
-    </tr>
-    <tr>
-      <th style="font-size:30px; color:white;" >Text</th>
-    </tr>
-     <tr>
-      <td style="color:white;"><%= article.text %></td>
-    </tr>
-    <tr>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td  style="font-size:15px; color:white;"><%= article.title %></td>
+      <td style="font-size:15px; color:white;"><%= article.text %></td>
+      <td style="font-size:15px; color:white;"><%= render article.comments.last(2) %></td>
+      <td style="font-size:15px;"><%= link_to 'Show', article_path(article) %>
+      <%= link_to 'Edit', edit_article_path(article) %>
+      <%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
 
-    <td><%= render article.comments.last(2) %></td>
+    
 
   <% end %>
 </table>
