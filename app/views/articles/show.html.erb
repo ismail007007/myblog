@@ -1,19 +1,37 @@
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
- 
-<h2>Comments</h2>
-<%= render @article.comments %>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+
+
+<header class="masthead">
+	 <link href="https://startbootstrap.github.io/startbootstrap-grayscale/css/styles.css" rel="stylesheet" />
+
+	<h1>
+	  <strong>Title:</strong>
+	  <%= @article.title %>
+	</h1>
+	 
+	<p style="font-size:30px; color:white;">
+	  <%= @article.text %>
+	</p>
+	 
+	<h2 style=" color:blue;">Comments</h2>
+	<%= render @article.comments %>
+
+	<h2 style=" color:blue;">Add a comment:</h2>
+	<%= render 'comments/form' %>
+
+	<%= link_to 'Edit', edit_article_path(@article) %> |
+	<%= link_to 'Back', articles_path %>
+      
+</header>
+
+
+  <body>
+
+   
+
+
+
+
+  </body>
